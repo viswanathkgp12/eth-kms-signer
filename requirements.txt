@@ -1,0 +1,5 @@
+boto3 = "^1.18.44"
+ecdsa = "^0.17.0"
+eth-account = "^0.5.5"
+py-ecc = "^5.2.0"
+python = "^3.9"

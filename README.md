@@ -1,6 +1,6 @@
 # eth_kms_signer
 
-AWS KMS Signer for ETH transactions
+AWS KMS Signer for ETH transactions(EIP 155/EIP 1559/ EIP 2930)
 
 ## Dependencies
 
@@ -32,7 +32,7 @@ from web3 import Web3
 w3 = Web3(Web3.HTTPProvider(endpoint_uri="{rpc_url}"))
 ```
 
-3. Sign a EIP 155 transaction
+3. Sign a **EIP 155** transaction
 
 ```python
 tx = {
@@ -43,11 +43,11 @@ tx = {
     "gasPrice": w3.toWei(1, "gwei"),
     "chainId": "0x4",
 }
-signed_tx = client.sign_legacy_transaction(tx, key_id)
+signed_tx = client.sign_transaction(tx, key_id)
 tx_hash = w3.eth.sendRawTransaction(signed_tx)
 ```
 
-4. Sign a EIP 1559 Dynamic Fee transaction
+4. Sign a **EIP 1559** Dynamic Fee transaction
 
 ```python
 tx = {
@@ -60,7 +60,7 @@ tx = {
     "type": "0x2",
     "chainId": "0x4",
 }
-signed_tx = client.sign_dynamic_fee_transaction(tx, key_id)
+signed_tx = client.sign_transaction(tx, key_id)
 tx_hash = w3.eth.sendRawTransaction(signed_tx)
 ```
 

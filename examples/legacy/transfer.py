@@ -21,6 +21,6 @@ tx = {
     "gasPrice": w3.toWei(1, "gwei"),
     "chainId": "0x4",
 }
-signed_tx = client.sign_legacy_transaction(tx, key_id)
+signed_tx = client.sign_transaction(tx, key_id)
 tx_hash = w3.eth.sendRawTransaction(signed_tx)
 print(f"Transaction Hash: {tx_hash.hex()}")

@@ -23,6 +23,6 @@ tx = {
     "type": "0x2",
     "chainId": "0x4",
 }
-signed_tx = client.sign_dynamic_fee_transaction(tx, key_id)
+signed_tx = client.sign_transaction(tx, key_id)
 tx_hash = w3.eth.sendRawTransaction(signed_tx)
 print(f"Transaction Hash: {tx_hash.hex()}")

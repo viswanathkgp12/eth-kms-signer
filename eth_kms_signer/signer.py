@@ -20,8 +20,13 @@ from eth_kms_signer.utils import get_address_from_pub, get_compressed_public_key
 
 
 class EthKmsClient(Client):
-    def sign_dynamic_fee_transaction(self, tx: Dict, key_id: str):
-        """Sign EIP 1559 Dynamic Fee/Access List Transaction"""
+    def sign_transaction(self, tx: Dict, key_id: str):
+        if "type" in tx and hexstr_if_str(to_int)(tx["type"]) != "0x0":
+            return self._sign_typed_transaction(tx, key_id)
+        return self._sign_legacy_transaction(tx, key_id)
+
+    def _sign_typed_transaction(self, tx: Dict, key_id: str):
+        """Sign EIP 1559 Dynamic Fee/ EIP 2930Access List Transaction"""
         transaction = TypedTransaction.from_dict(tx)
         raw_transaction = transaction.hash()
         v, r, s = self._raw_sign(raw_transaction, key_id)
@@ -33,7 +38,7 @@ class EthKmsClient(Client):
         }
         return TypedTransaction.from_dict(signed_transaction).encode()
 
-    def sign_legacy_transaction(self, tx: Dict, key_id: str):
+    def _sign_legacy_transaction(self, tx: Dict, key_id: str):
         """Sign Legacy EIP 155 Transaction"""
         sanitized_dictionary = pipe(
             tx,

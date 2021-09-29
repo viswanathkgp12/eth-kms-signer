@@ -72,3 +72,7 @@ Choose one of the following for a fully detailed example:
 - [EIP 155 legacy contract invocation](./examples/legacy/contract_invoke.py)
 - [EIP 1559 transfer transaction](./examples/eip1559/transfer.py)
 - [EIP 1559 contract invocation](./examples/eip1559/contract_invoke.py)
+
+## Terraform to provision AWS KMS Key
+
+[Detailed Example](./examples/terraform/main.tf)

@@ -75,4 +75,6 @@ Choose one of the following for a fully detailed example:
 
 ## Terraform to provision AWS KMS Key
 
+The following example makes use of the [CloudPosse Terraform Module](https://github.com/cloudposse/terraform-aws-kms-key/tree/0.11.0):
+
 [Detailed Example](./examples/terraform/main.tf)

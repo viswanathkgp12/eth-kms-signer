@@ -8,19 +8,14 @@ from eth_account._utils.legacy_transactions import (
     encode_transaction,
     serializable_unsigned_transaction_from_dict,
 )
-from eth_account._utils.signing import sign_transaction_dict, to_eth_v
+from eth_account._utils.signing import to_eth_v
 from eth_account._utils.typed_transactions import TypedTransaction
 from eth_account._utils.validation import LEGACY_TRANSACTION_FORMATTERS
-from eth_keys import keys
 from eth_utils import to_int
 from eth_utils.curried import apply_formatters_to_dict, hexstr_if_str
 
 from eth_kms_signer.client import Client
-from eth_kms_signer.utils import (
-    get_address_from_pub,
-    get_compressed_public_key,
-    to_r_s_v,
-)
+from eth_kms_signer.utils import get_address_from_pub, get_compressed_public_key, to_r_s_v
 
 
 class EthKmsClient(Client):
@@ -39,7 +34,6 @@ class EthKmsClient(Client):
 
     def sign_legacy_transaction(self, tx: Dict, key_id: str):
         """Sign Legacy EIP 155 Transaction"""
-        sign_transaction_dict(keys.PrivateKey(b"7dec120c8b7c013eb966c60bf8be7566"), tx)
         sanitized_dictionary = pipe(
             tx,
             dict,

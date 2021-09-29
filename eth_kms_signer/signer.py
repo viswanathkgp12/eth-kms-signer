@@ -11,11 +11,16 @@ from eth_account._utils.legacy_transactions import (
 from eth_account._utils.signing import to_eth_v
 from eth_account._utils.typed_transactions import TypedTransaction
 from eth_account._utils.validation import LEGACY_TRANSACTION_FORMATTERS
+from eth_typing import ChecksumAddress
 from eth_utils import to_int
 from eth_utils.curried import apply_formatters_to_dict, hexstr_if_str
 
 from eth_kms_signer.client import Client
-from eth_kms_signer.utils import get_address_from_pub, get_compressed_public_key, to_r_s_v
+from eth_kms_signer.utils import (
+    get_address_from_pub,
+    get_compressed_public_key,
+    to_r_s_v,
+)
 
 
 class EthKmsClient(Client):
@@ -58,7 +63,7 @@ class EthKmsClient(Client):
         key = VerifyingKey.from_pem(pem).to_string()
         return key
 
-    def get_address(self, key_id: str) -> bytes:
+    def get_address(self, key_id: str) -> ChecksumAddress:
         """Get checksummed address for a KMS KeyId"""
         return get_address_from_pub(self.get_public_key(key_id))
 

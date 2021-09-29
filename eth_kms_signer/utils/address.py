@@ -1,4 +1,5 @@
 from eth_keys.backends.native.ecdsa import compress_public_key
+from eth_typing import ChecksumAddress
 from eth_utils import keccak, to_checksum_address
 
 
@@ -7,7 +8,7 @@ def public_key_bytes_to_address(public_key_bytes: bytes) -> bytes:
     return keccak(public_key_bytes)[-20:]
 
 
-def get_address_from_pub(uncompressed_public_key: bytes) -> bytes:
+def get_address_from_pub(uncompressed_public_key: bytes) -> ChecksumAddress:
     """Get checksummed address for an uncompressed public key"""
     return to_checksum_address(public_key_bytes_to_address(uncompressed_public_key))
 

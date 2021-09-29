@@ -1,7 +1,8 @@
 import os
 
-from eth_kms_signer import EthKmsClient
 from web3 import Web3
+
+from eth_kms_signer import EthKmsClient
 
 region = os.environ.get("AWS_KMS_REGION", "us-east-2")
 key_id = os.environ.get("AWS_KMS_KEY_ID")

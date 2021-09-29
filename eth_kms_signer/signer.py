@@ -16,11 +16,7 @@ from eth_utils import to_int
 from eth_utils.curried import apply_formatters_to_dict, hexstr_if_str
 
 from eth_kms_signer.client import Client
-from eth_kms_signer.utils import (
-    get_address_from_pub,
-    get_compressed_public_key,
-    to_r_s_v,
-)
+from eth_kms_signer.utils import get_address_from_pub, get_compressed_public_key, to_r_s_v
 
 
 class EthKmsClient(Client):

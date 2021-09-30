@@ -1,0 +1,35 @@
+site_name: ETH KMS Signer
+site_url: https://eth-kms-signer.readthedocs.io/en/latest/
+site_description: Project documentation for ETH KMS Signer.
+
+repo_url: https://github.com/viswanathkgp12/eth_kms_signer/
+edit_uri: ''
+
+theme:
+  name: readthedocs
+  locale: en
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - python
+
+nav:
+  - Home: index.md
+  - Usage: usage.md
+  - Examples: examples.md
+
+extra_css:
+  - css/extra.css
+
+markdown_extensions:
+  - toc:
+      permalink: 
+  - admonition
+  - attr_list
+  - def_list
+  - mdx_gh_links:
+      user: mkdocs
+      repo: mkdocs
+
+plugins:
+  - search

@@ -1,5 +1,9 @@
 # eth_kms_signer
 
+[![PyPI](https://img.shields.io/pypi/v/eth-kms-signer)](https://pypi.org/project/eth-kms-signer/)
+[![Downloads](https://pepy.tech/badge/eth-kms-signer)](https://pepy.tech/project/eth-kms-signer)
+[![PyPI - License](https://img.shields.io/pypi/l/eth-kms-signer)](https://github.com/viswanathkgp12/eth_kms_signer/blob/master/LICENSE)
+
 AWS KMS Signer for ETH transactions(EIP 155/EIP 1559/ EIP 2930)
 
 ## Dependencies

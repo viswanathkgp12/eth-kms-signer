@@ -26,7 +26,7 @@ This library is available on PyPI. Install via pip as:
 ```python
 from eth_kms_signer import EthKmsClient
 
-client = EthKmsClient("{aws-kms-region}")
+client = EthKmsClient(region_name="{aws-kms-region}")
 ```
 
 2. Initailize web3

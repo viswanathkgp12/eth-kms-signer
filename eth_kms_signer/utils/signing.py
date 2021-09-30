@@ -14,7 +14,7 @@ def to_r_s_v(
     expected_pub_key: bytes,
     sig_der: bytes,
 ) -> Tuple[int, int, int]:
-    """ "Canonicalize r, s and calculate recovery parameter"""
+    """Canonicalize r, s and calculate recovery parameter"""
     rs = util.sigdecode_der(sig_der, ecdsa.generator_secp256k1.order())
     rs = _to_low_s(rs)
     return _recovery_param(msghash, expected_pub_key, rs)
@@ -23,7 +23,7 @@ def to_r_s_v(
 # these enforce low S values, by negating the value (modulo the order) if
 # above order/2
 # ref: https://github.com/ethereum/py_ecc/blob/master/py_ecc/secp256k1/secp256k1.py#L150
-def _to_low_s(rs: Tuple[int, int]):
+def _to_low_s(rs: Tuple[int, int]) -> Tuple[int, int]:
     r, s = rs
     r, s = r, s if s * 2 < N else N - s
     return r, s
@@ -51,5 +51,5 @@ def _recovery_param(
     raise Exception("Cannot find recovery param for the signature, pub key")
 
 
-def _encode_int32(v):
+def _encode_int32(v: int) -> bytes:
     return v.to_bytes(32, byteorder="big")

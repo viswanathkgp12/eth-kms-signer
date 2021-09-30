@@ -5,7 +5,7 @@ with open("./README.md") as readme:
 
 setup(
     name="eth_kms_signer",
-    version="0.1.0",
+    version="0.1.1",
     author="Viswanath Kapavarapu",
     author_email="viswanath.iit@gmail.com",
     description="KMS signer for Ethereum",

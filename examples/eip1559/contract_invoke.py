@@ -4,11 +4,11 @@ from web3 import Web3
 
 from eth_kms_signer import EthKmsClient
 
-region = os.environ.get("AWS_KMS_REGION", "us-east-2")
+region_name = os.environ.get("AWS_KMS_REGION", "us-east-2")
 key_id = os.environ.get("AWS_KMS_KEY_ID")
 rpc_url = os.environ.get("RINKEBY_RPC_URL")
 
-client = EthKmsClient(region)
+client = EthKmsClient(region_name=region_name)
 from_address = client.get_address(key_id)
 w3 = Web3(Web3.HTTPProvider(endpoint_uri=rpc_url))
 nonce = w3.eth.get_transaction_count(from_address)

@@ -18,7 +18,7 @@ from web3 import Web3
 Instantiate the kms signer client
 
 ```python
-client = EthKmsClient(region)
+client = EthKmsClient(region_name=region_name)
 ```
 
 Initialize a web3 instance with an Infura node

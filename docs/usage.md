@@ -15,7 +15,7 @@ KMS Signer Client can be instantited by providong the region in which the KMS se
 ```python
 from eth_kms_signer import EthKmsClient
 
-client = EthKmsClient("{aws-kms-region}")
+client = EthKmsClient(region_name="aws-kms-region")
 ```
 
 ### Getting the public key

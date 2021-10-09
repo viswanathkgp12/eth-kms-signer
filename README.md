@@ -1,5 +1,6 @@
 # eth_kms_signer
 
+[![codecov](https://codecov.io/gh/viswanathkgp12/eth_kms_signer/branch/master/graph/badge.svg?token=EZELOBPE0S)](https://codecov.io/gh/viswanathkgp12/eth_kms_signer)
 [![PyPI](https://img.shields.io/pypi/v/eth-kms-signer)](https://pypi.org/project/eth-kms-signer/)
 [![Downloads](https://pepy.tech/badge/eth-kms-signer)](https://pepy.tech/project/eth-kms-signer)
 [![PyPI - License](https://img.shields.io/pypi/l/eth-kms-signer)](https://github.com/viswanathkgp12/eth_kms_signer/blob/master/LICENSE)

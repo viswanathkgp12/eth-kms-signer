@@ -8,6 +8,9 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   build:
@@ -27,3 +30,20 @@ jobs:
     - name: Lint with flake8
       run: |
         make all
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+    - name: Generate coverage report
+      run: |
+        coverage run -m unittest tests/*.py
+        coverage xml -i
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v2
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        env_vars: OS,PYTHON
+        fail_ci_if_error: true
+        files: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        verbose: true

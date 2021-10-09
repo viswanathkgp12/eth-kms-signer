@@ -69,12 +69,3 @@ tx = {
 signed_tx = client.sign_transaction(tx, key_id)
 tx_hash = w3.eth.sendRawTransaction(signed_tx)
 ```
-
-## Examples
-
-Choose one of the following for a fully detailed example:
-
-- [EIP 155 legacy transfer transaction](./examples/legacy/transfer.py)
-- [EIP 155 legacy contract invocation](./examples/legacy/contract_invoke.py)
-- [EIP 1559 transfer transaction](./examples/eip1559/transfer.py)
-- [EIP 1559 contract invocation](./examples/eip1559/contract_invoke.py)

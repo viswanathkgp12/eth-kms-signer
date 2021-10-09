@@ -17,6 +17,7 @@ nav:
   - Home: index.md
   - Usage: usage.md
   - Examples: examples.md
+  - Module: reference.md
 
 extra_css:
   - css/extra.css
@@ -33,3 +34,4 @@ markdown_extensions:
 
 plugins:
   - search
+  - mkdocstrings

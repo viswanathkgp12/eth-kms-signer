@@ -14,4 +14,7 @@ class AddressUtils(unittest.TestCase):
 
     def test_get_compressed_pub_key(self):
         compressed = get_compressed_public_key(self.pub_key)
-        assert compressed.hex() == "0236758024bb7127ce31145f853b0f44f9f2a9407f5f77c9447b8fb255894b0068"
+        assert (
+            compressed.hex()
+            == "0236758024bb7127ce31145f853b0f44f9f2a9407f5f77c9447b8fb255894b0068"
+        )

@@ -21,6 +21,15 @@ from eth_kms_signer.utils import get_address_from_pub, get_compressed_public_key
 
 class EthKmsClient(Client):
     def sign_transaction(self, tx: Dict, key_id: str) -> bytes:
+        """Sign an ETH transaction using the Key ID in AWS KMS
+
+        Args:
+            tx (Dict): Dictionary representing the tx
+            key_id (str): KeyID to be used for signing
+
+        Returns:
+            bytes: Signed transaction
+        """
         if "type" in tx and hexstr_if_str(to_int)(tx["type"]) != "0x0":
             return self._sign_typed_transaction(tx, key_id)
         return self._sign_legacy_transaction(tx, key_id)
@@ -58,18 +67,40 @@ class EthKmsClient(Client):
         return encode_transaction(unsigned_transaction, (v, r, s))
 
     def get_public_key(self, key_id: str) -> bytes:
-        """Get public key for a key id in AWS KMS"""
+        """Get public key for a key id in AWS KMS
+
+        Args:
+            key_id (str): KeyID for which the public key needs to be retrieved
+
+        Returns:
+            bytes: Uncompressed public key
+        """
         response = self.client.get_public_key(KeyId=key_id)
         pem = base64.b64encode((response.get("PublicKey")))
         key = VerifyingKey.from_pem(pem).to_string()
         return key
 
     def get_address(self, key_id: str) -> ChecksumAddress:
-        """Get checksummed address for a KMS KeyId"""
+        """Get checksummed address for a KMS KeyId
+
+        Args:
+            key_id (str): KeyID for which the address needs to be retrieved
+
+        Returns:
+            ChecksumAddress: Checksummed address
+        """
         return get_address_from_pub(self.get_public_key(key_id))
 
     def _raw_sign(self, msghash: bytes, key_id: str) -> Tuple[int, int, int]:
-        """Generate v, r, s for a msg digest against a key id in AWS KMS"""
+        """Generate v, r, s for a msg digest against a key id in AWS KMS
+
+        Args:
+            msghash (bytes): SHA256 Digest to be signed using AWS KMS
+            key_id (str): KeyID to be used for signing
+
+        Returns:
+            Tuple[int, int, int]: v, r, s signature parameters
+        """
         response = self.client.sign(
             KeyId=key_id,
             Message=msghash,

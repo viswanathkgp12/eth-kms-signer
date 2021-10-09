@@ -7,7 +7,6 @@ class Client:
         aws_access_key_id=None,
         aws_secret_access_key=None,
         region_name=None,
-        profile_name=None,
         boto_kms_client=None,
     ):
         """Client allows you to interact with AWS KMS resources.
@@ -16,7 +15,6 @@ class Client:
             aws_access_key_id (str, optional): AWS access key ID
             aws_secret_access_key (str, optional): AWS secret access key
             region_name (str, optional): Default region when creating new connections
-            profile_name (str, optional): The name of a profile to use.
             boto_kms_client (Any, optional): Use this client instead of creating new one
         """
         if boto_kms_client is not None:

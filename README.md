@@ -7,6 +7,8 @@
 
 AWS KMS Signer for ETH transactions(EIP 155/EIP 1559/ EIP 2930)
 
+[>> Go to documentation](https://eth-kms-signer.readthedocs.io/en/latest/)
+
 ## Dependencies
 
 - Python 3.5+

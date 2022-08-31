@@ -1,5 +1,5 @@
 boto3==1.18.50
 ecdsa==0.17.0
-eth-account==0.5.6
+eth-account==0.5.9
 py-ecc==5.2.0
 eth-keyfile>=0.6.0 # not directly required, pinned by Snyk to avoid a vulnerability
